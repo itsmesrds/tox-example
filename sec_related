@@ -1,0 +1,123 @@
+1. incident response related: 
+	
+	Perform an AWS Security Audit includes enabling various security services(AWS guard duty, security hub)
+	Penetration Testing in AWS
+	Setting up event driven security (
+		for preventive:
+		WAF, IAM, Network Firewall, KMS
+		for detective:
+		CloudWatch, Cloud Trail, Inspector, Detective
+
+2. logging & monitoring 
+	AWS Inspector Vulnerability Scans
+	WAF, Session, System, patchmanger. parameter store ,event bridge, event driven, athena, config,. 
+	Amazon Macie
+	Troubleshoot security monitoring and alerting.
+	durable and secure log storage according to AWS bestpractices
+	Troubleshoot logging solutions.
+	Given the absence of logs, determine the incorrect configuration and define remediation steps.
+	Analyze logging access permissions to determine incorrect configuration and define remediation
+	steps.
+	Based on the security policy requirements, determine the correct log level, type, and sources
+
+
+ 3. Data Protection
+ 	implement key management and use.
+ 	 implement a data encryption solution for data at rest and data in transit.
+ 	 Distinguish the compliance state of data through tag-based data classifications and automate remediation.
+	Evaluate a number of transport encryption techniques and select the appropriate method (i.e.TLS, IPsec, client-side KMS encryption).
+
+ 4.  Infrastructure Security
+ 		edge security on AWS
+ 		Troubleshoot a secure network infrastructure.
+ 		 implement host-based security.
+			Decide when to use host-based firewall like iptables.
+			Recommend methods for host hardening and monitoring
+		  implement a secure network infrastructure.
+				Disable any unnecessary network ports and protocols.
+				Given a set of edge protection requirements, evaluate the security groups and NACLs of an
+				application for compliance and recommend required changes.
+				Given security requirements, decide on network segmentation (e.g. security groups and NACLs)
+				that allow the minimum ingress/egress access required.
+				Determine the use case for VPN or Direct Connect.
+				Determine the use case for enabling VPC Flow Logs.
+				Given a description of the network infrastructure for a VPC, analyze the use of subnets and
+				gateways for secure operation.
+
+
+5. Identity and Access Management 
+
+Services that we use: 
+
+	Management and Governance:
+		AWS Audit Manager
+		AWS CloudTrail
+		Amazon CloudWatch
+		AWS Config
+		AWS Organizations
+		AWS Systems Manager
+		AWS Trusted Advisor
+		AWS Control tower
+
+
+	Networking and Content Delivery:
+		Amazon Detective
+		AWS Firewall Manager
+		AWS Network Firewall
+		AWS Security Hub
+		AWS Shield
+		Amazon VPC
+			VPC endpoints
+			Network ACLs
+			Security groups			 
+		AWS WAF
+
+	Security, Identity, and Compliance:
+		AWS Certificate Manager (ACM)
+		AWS CloudHSM
+		AWS Directory Service
+		Amazon GuardDuty
+		AWS Identity and Access Management (IAM)
+		Amazon Inspector
+		AWS Key Management Service (AWS KMS)
+		Amazon Macie
+		AWS Single Sign-On
+
+
+
+
+
+		Security Governance Approach
+
+Enable Security Services  - Step1
+SecurityHub
+Check SecurityHub Integration with Wizy
+
+
+Inspector 
+AWS Config
+Compliance Tracking - Company needs
+HIPAA - Conformance Packs
+CIS - 
+NIST - 
+Configuration Changes Tracking
+AWS Macie
+AWS Guard Duty
+Deploy Control Tower
+
+Security Domains for Projects
+
+Identity & Access Management
+Check the RBAC methodology being used and see if there is a possibility to reinvent the process to reduce the privileges and enforce least privilege. 
+Reduce using generalized roles like AWS Admin, AWS Network Admin, Security Admin for team access instead use team specific roles to create least privilege of access to do their job. 
+Create a periodic audit process to review unused permissions that are attached to roles and users in the AWS accounts. 
+Logging & Monitoring
+Logs need to centralized in log archive account
+Write a bucket policy with retention needed. 
+Define a governance approach to enable logging on all the resources that are provisioned within the AWS accounts. 
+Infrastructure Security
+
+
+Data Protection
+Vulnerability Management 
+Incident Response 
