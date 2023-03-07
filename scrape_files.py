@@ -1,8 +1,8 @@
 import os
 import concurrent.futures
 
-# specify the directory path to read the file names
-directory_path = 'C:/Users/username/Desktop/'
+# specify the base directory paths to read the file names
+base_directory_paths = ['C:/Users/username/Desktop/Folder1', 'C:/Users/username/Desktop/Folder2', 'C:/Users/username/Desktop/Folder3']
 
 # specify the output file name to write the file names
 output_file_name = 'file_names.txt'
@@ -18,12 +18,19 @@ def write_file_names(directory_path):
     return file_list
 
 # use multi-threading to write file names to file in parallel
-def write_file_names_to_file(directory_path, output_file_name):
+def write_file_names_to_file(base_directory_paths, output_file_name):
     # create a thread pool executor with 5 worker threads
     with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
-        # submit the write_file_names function to the executor
-        future = executor.submit(write_file_names, directory_path)
-        file_list = future.result()
+        # submit the write_file_names function to the executor for each base directory path
+        futures = []
+        for directory_path in base_directory_paths:
+            future = executor.submit(write_file_names, directory_path)
+            futures.append(future)
+
+        # get the file names returned by the write_file_names function for each base directory path
+        file_list = []
+        for future in concurrent.futures.as_completed(futures):
+            file_list += future.result()
 
     # open the output file in write mode
     with open(output_file_name, 'w') as file:
@@ -34,4 +41,4 @@ def write_file_names_to_file(directory_path, output_file_name):
     print("File names written to file: ", output_file_name)
 
 # call the write_file_names_to_file function
-write_file_names_to_file(directory_path, output_file_name)
+write_file_names_to_file(base_directory_paths, output_file_name)
